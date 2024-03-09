@@ -142,6 +142,23 @@ docker exec -it ID_do_COntainer /bin/bash
 
 Instalar o pacote firewalld e executar o script [manager_firewallD.sh](https://raw.githubusercontent.com/elppans/zretail/master/manager_firewallD.sh) para configurar as portas necessárias.  
 Executar o script [debian_configure_power_settings.sh](https://raw.githubusercontent.com/elppans/customshell/master/debian_configure_power_settings.sh) para configurar `hibernação`, `suspensão` e `HandleLidSwitch` no Debian.  
+Se necessário usar porta diferente do padrão 80 no Manager, executar o Script [manager_firewallD_redirect_port.sh](https://raw.githubusercontent.com/elppans/zretail/master/manager_firewallD_redirect_port.sh) (Padrão 8080 > 80)
+
+- [Docker iptables](https://dev.to/soerenmetje/how-to-secure-a-docker-host-using-firewalld-2joo)
+
+Após instalar e configurar o FirewallD, **crie/edite** o arquivo `/etc/docker/daemon.json` e adicione este conteúdo:  
+
+```
+{
+"iptables": false
+}
+```
+
+Após configurar o arquivo, faça um restart do serviço docker:  
+
+```
+sudo systemctl restart docker
+```
 
 ### Outras informações  
 
