@@ -63,10 +63,19 @@ sudo groupadd docker
 ```bash
 sudo usermod -aG docker $USER
 ```
-Verifique se você pode executar o docker sem sudo.
+Faça logout e login novamente para que as novas permissões entrem em vigor.  
+Verifique se você pode executar o docker sem sudo.  
 
 ```bash
 docker run hello-world
+```
+Se não for, verifique as permissões do socket do Docker:  
+```bash
+ls -l /var/run/docker.sock
+```
+Ajuste as permissões do socket do Docker, se necessário:  
+```bash
+sudo chmod 666 /var/run/docker.sock
 ```
 ## Configurar o Docker para iniciar com systemd  
 
