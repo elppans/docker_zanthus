@@ -4,13 +4,19 @@
 
 ```bash
 sudo apt update
+```
+```bash
 sudo apt install ca-certificates curl gnupg
 ```
 #### Adicionar chave GPG oficial do Docker
 
 ```bash
 sudo install -m 0755 -d /etc/apt/keyrings
+```
+```bash
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+```
+```bash
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 ```
 
@@ -53,6 +59,8 @@ Crie o grupo docker e adicione o usuário  nele
 
 ```bash
 sudo groupadd docker
+```
+```bash
 sudo usermod -aG docker $USER
 ```
 Verifique se você pode executar o docker sem sudo.
@@ -66,7 +74,11 @@ docker run hello-world
 
 ```bash
 sudo systemctl enable --now docker.service containerd.service
+```
+```bash
 systemctl status docker.service containerd.service
+```
+```bash
 docker info
 ```
 ### Comando docker-compose
