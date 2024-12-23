@@ -1,0 +1,42 @@
+Como configurar este processo..
+
+Primeiro instale o NodeJS usamos neste projeto a v0.8.9
+Se quiser utilizar uma superior e houver faaa.
+Mas acompanhe para o caso de alguma feature ser diferente.
+
+Baixe em http://nodejs.org/
+
+
+Primeiro ajuste o arquivo configurador_servidor.js
+Diga qual a url do manager do Saas
+
+para executar:
+
+node servidor-mirage-S.js
+
+Via putty:
+ nohup nodejs /web/mirage-S/src/servidor-mirage-S.js 2 > 1 >> /tmp/log_node_mirage_S.log &
+
+
+/*** usando como PRIME*** /
+Ramo do MirageS: mirage_prime
+
+No "configurador_servidor.js" configurar os parametros:
+ip_servidor
+pasta_manager
+caminho_absoluto_manager
+
+nome_prime: se nao informado sera utilizado o padrao "ZANTHUS"
+porta_mirage: se nao informado serautilizado o padrao 8040
+cod_servidor_mirage: se nao informado ira pegar o cadigo do ZMWSInfo.ini
+
+No Manager:
+Editar o ZMWSInfo.ini e incluir os parametros:
+
+[MIRAGE_S]
+ATIVO=S
+PATH={caminho da pasta do mirage por exemplo "/ZSAASEBS/ebs01/prime/lojasmel/mirage"}
+PORTA={porta configurada no mirageS por exemplo: 8105}
+
+[PRIME]
+NOME={Nao e obrigatorio, se estiver vazio por padrao sera utilizado o nome "ZANTHUS"}

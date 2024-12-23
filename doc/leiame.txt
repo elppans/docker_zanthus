@@ -1,0 +1,64 @@
+*******
+	VISÃO GERAL: 
+
+		Essa pasta possui um modelo para testes do ambiente Zanthus.
+
+		O arquivo docker-compose.yml possui:
+		- Duas máquinas Manager para simular o balanceador.
+		- Para configurar a máquina como Mirage basta colocar na variável de ambiente como True
+		- Há um balanceador os dados que são sobrepostos estão em suas respectivas pastas, por exemplo o ZMWSInfo.ini do Manager 
+		estão na pasta do Manager, o do Balanceador e Comet (que possuirá um container próprio em alguns dias)
+		- É recomendado que para clientes maiores as máquinas sejam criadas separadamente, assim não concorrerão no consumo do hardware.
+		- É importante ter ciencia de que um docker pode consumir todo o recurso da máquina para resolver o processamento que lhe foi designado, 
+		portanto há possibilidade de limitar cada um dos containers.
+		- Todos os servidores deverão compartilhar o servidor Memcache.
+		- Lembre-se que o container efêmero, ou seja todas as informações que estiverem nele serão perdidas, por conta disso os containeres
+		deverão ter uma pasta compartilhada entre si para colocarem os arquivos GZMD e arquivos fiscais, como no exemplo do docker-compose.yml.
+		Não se preocupe com os arquivos TRA, toda vez que for feita uma carga baixaremos o último GZMD e partiremos dele.
+		- Veja a imagem ilustrativa do modelo.
+		
+
+*******
+	COMO INSTALAR O DOCKER E DOCKER-COMPOSE NO CENTOS: 
+
+		Primeiro atualize o ambiente
+			yum update
+			
+		Depois instale o docker
+			yum install docker
+			
+		Na sequencia o docker-compose
+			yum install docker-compose
+			
+		Caso encontre algum problema siga os passos desse link:
+			https://www.digitalocean.com/community/tutorials/como-instalar-e-usar-o-docker-compose-no-centos-7-pt
+
+
+*******
+	ONDE BAIXAREMOS AS VERSÕES: 
+		
+		As versões não serão mais disponibilizadas em arquivo Zip, sempre que uma nova versão de Manager ou qualquer um dos aplicativos utilizados pela Zanthus, 
+		forem atualizados disponibilizaremos um novo container.
+		
+		Teremos sempre três versões de container para Manager, um para Oracle, Postgres e SQLServer.
+		
+		As versões estarão disponíveis no dockerhub.com será possível baixá-la através do usuário que forneceremos.
+		
+*******
+	SUBINDO O AMBIENTE DE EXEMPLO:
+
+		Após configurar o ambiente ajustar os IPs para subir o ambiente de exemplo execute o comando:
+			
+			docker-compose up -d
+			
+		para baixar o ambiente execute 
+			docker-compose down.
+		
+		Na primeira vez provavelmente retornará um erro, é necessário efetuar o login no dockerhub:
+			docker login
+			
+			Usuário: atualizador
+			senha: 2291755@zanthus
+			
+		Execute novamente o comando docker-compose up -d, acesse o ambiente de seu navegador de preferência.
+	

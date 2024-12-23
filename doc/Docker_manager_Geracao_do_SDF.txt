@@ -1,0 +1,12 @@
+Geração do SDF
+
+Cadastros,  Lojas
+Parâmetros de Loja;
+
+Geração do SDF:
+
+Caminho para gravação de arquivos SDF Modo 1 (PATH_SDF):
+/usr/local/apache2/htdocs/manager/Arquivos/1/VENDAS/
+
+Caminho para gravação de arquivos SDF Modo 2 (PATH_SDF2):
+/usr/local/apache2/htdocs/manager/Arquivos/1/Cupons/

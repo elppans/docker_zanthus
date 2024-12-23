@@ -1,0 +1,28 @@
+
+Função 3403: Exibe prefixo em uso no WebServer
+
+Comunicação do PDV com tipo seguro (443)
+
+
+Modelo usando o arquivo ZMWS0000.CFG:
+
+endereco=nome_host
+path=/manager/manager_webservices.php5
+timeout=30
+opcoes=3
+flags_or=8
+ssl=1
+
+
+Sobre:
+
+ssl=1 = Forçar comunicação com 443
+flags_or=8 = Ignorar certificado.
+
+Quando é usado um servidor de testes, que não tem um certificado válido, deve usar a opção flags_or.
+Se o servidor já tiver uma configuração de hostname com certifiado válido, não é necessário usar.
+Comunicação segura não funciona com IP, deve usar um nome para resolver.
+Para isso, para um servidor de testes, deve configurar no PDV o arquivo /etc/hosts, adicionando no final:
+
+IPSERVIDOR nome_host
+

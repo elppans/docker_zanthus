@@ -1,0 +1,10 @@
+Trocar nome do Cliente no Manager:
+
+Editar no arquivo "ZMWSInfo_manager_1.ini" o campo "NOMEMINI" e "NOME", na seção [SERVIDOR].
+
+Exemplo:
+
+[SERVIDOR]
+CODIGO=1
+NOMEMINI=<span style="color:red">MANAGER 1</span>
+NOME=<span style="color:red">MANAGER 1</span>

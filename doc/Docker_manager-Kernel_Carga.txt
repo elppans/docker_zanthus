@@ -1,0 +1,9 @@
+Configurar no Manager:
+
+
+Cadastros, Parametros, Gerais;
+Grupo: 7 - CADASTROS:
+
+Path servidor arquivos = /usr/local/nginx/htdocs/CARGA_PDV
+
+Este diretório deve estar coom permissão total.

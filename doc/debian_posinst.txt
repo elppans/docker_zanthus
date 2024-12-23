@@ -1,0 +1,207 @@
+SUDO no Debian:
+
+Instalador Debian, usando a instalação padrão não instala sudo, para usar o administrador direto (root) é usado o comando "su"
+Só é possível instalar o sudo se escolher a instalação avançada do Debian.
+
+Instalação do SUDO pós instalação do Debian:
+su (Logar como root)
+sudo apt update
+sudo apt -y install sudo
+usermod -a -G sudo USUARIO
+exit
+
+Teste sudo:
+
+sudo ls
+
+Se não funcionar com o usuário no grupo sudo, configure o usuário direto:
+
+su
+echo -e "USUARIO ALL=(ALL:ALL) ALL" | tee -a /etc/sudoers
+exit
+sudo ls
+
+Diretórios padronizados:
+
+/opt/docker/disco_compartilhado/arquivos
+/opt/docker/disco_compartilhado/carga
+/opt/docker/disco_compartilhado/cert
+/opt/docker/disco_compartilhado/chama
+/opt/docker/disco_compartilhado/logs
+/Zanthus/Zeus/path_comum*
+
+Instalação e configuração do samba:
+
+sudo apt install samba
+sudo adduser --system --no-create-home zanthus
+sudo groupadd --system --force zanthus
+sudo usermod -a -G sambashare $USER
+sudo usermod -a -G sambashare zanthus
+sudo smbpasswd -a zanthus
+grep samba /etc/group
+#sudo systemctl restart smb nmb
+sudo systemctl restart smbd nmbd
+
+Configuração do /etc/crontab (a última linha sempre deve ser em branco):
+
+5 *    * * *   root    chmod -R 777 /opt/docker/disco_compartilhado
+5 *    * * *   root    chmod -R 777 /Zanthus/Zeus/path_comum*
+5 *    * * *   root    chown -R zanthus:zanthus /Zanthus/Zeus/path_comum*
+
+Configuração do /etc/samba/smb.conf:
+
+[Arquivos]
+path = /opt/docker/disco_compartilhado/arquivos
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[Logs]
+path = /opt/docker/disco_compartilhado/logs
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum1]
+path = /Zanthus/Zeus/path_comum1
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum2]
+path = /Zanthus/Zeus/path_comum2
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum3]
+path = /Zanthus/Zeus/path_comum3
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum4]
+path = /Zanthus/Zeus/path_comum4
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum5]
+path = /Zanthus/Zeus/path_comum5
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum6]
+path = /Zanthus/Zeus/path_comum6
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum7]
+path = /Zanthus/Zeus/path_comum7
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum8]
+path = /Zanthus/Zeus/path_comum8
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum9]
+path = /Zanthus/Zeus/path_comum9
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum10]
+path = /Zanthus/Zeus/path_comum10
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum11]
+path = /Zanthus/Zeus/path_comum11
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum12]
+path = /Zanthus/Zeus/path_comum12
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum13]
+path = /Zanthus/Zeus/path_comum13
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum14]
+path = /Zanthus/Zeus/path_comum14
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum15]
+path = /Zanthus/Zeus/path_comum15
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum16]
+path = /Zanthus/Zeus/path_comum16
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum17]
+path = /Zanthus/Zeus/path_comum17
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum18]
+path = /Zanthus/Zeus/path_comum18
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum19]
+path = /Zanthus/Zeus/path_comum19
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+[path_comum20]
+path = /Zanthus/Zeus/path_comum20
+valid users = @sambashare
+guest ok = no
+writable = yes
+browsable = yes
+
+
