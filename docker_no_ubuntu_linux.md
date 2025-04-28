@@ -1,6 +1,10 @@
 # Docker no Ubuntu Linux
 
-# Adicionando chave GPG do Docker:
+## Remvover Docker versão Snap:
+```bash
+sudo snap remove docker
+```
+## Adicionando chave GPG do Docker:
 ```bash
 sudo apt-get update
 ```
@@ -16,7 +20,7 @@ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyring
 ```bash
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
-# Adicionando reositório:
+## Adicionando reositório:
 ```bash
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
@@ -24,12 +28,12 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 ```
-Instalando:
+## Instalando:
 ```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-Criando o grupo docker e adicionando o usuário nele:
+## Criando o grupo docker e adicionando o usuário nele:
 ```bash
 sudo groupadd docker
 ```
@@ -37,19 +41,19 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 ```
 
-Ajuste as permissões do socket do Docker:
+## Ajuste as permissões do socket do Docker:
 ```bash
 sudo chmod 666 /var/run/docker.sock
 ```
 
-Ativar serviço:
+## Ativar serviço:
 ```bash
 sudo systemctl enable --now docker.service containerd.service
 ```
 ```bash
 systemctl status docker.service containerd.serviceb
 ```
-Configurando docker-compose
+## Configurando docker-compose
 ```bash
 ls /usr/bin/docker-compose*
 ```
@@ -59,21 +63,21 @@ ls /usr/local/bin/docker-compose*
 ```bash
 sudo ln -sfv /usr/libexec/docker/cli-plugins/* /usr/local/bin/
 ```
-Teste:
+## Teste:
 ```bash
 docker run hello-world
 ```
-Informações:
+## Informações:
 ```bash
 docker info
 ```
-Login:
+## Login:
 ```bash
 docker login -u usuário_docker
 ```
 >{senha}
 
-Subir o docker configurado no .yml:
+## Subir o docker configurado no .yml:
 ```bash
 cd /docker
 ```
