@@ -56,7 +56,7 @@ sudo systemctl enable --now docker.service containerd.service
 systemctl status docker.service containerd.service
 ```
 ```bash
-systemctl restart docker.service containerd.service
+sudo systemctl restart docker.service containerd.service
 ```
 ## Configurando docker-compose
 ```bash
