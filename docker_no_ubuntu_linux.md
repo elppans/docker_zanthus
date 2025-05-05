@@ -53,7 +53,10 @@ sudo chmod 666 /var/run/docker.sock
 sudo systemctl enable --now docker.service containerd.service
 ```
 ```bash
-systemctl status docker.service containerd.serviceb
+systemctl status docker.service containerd.service
+```
+```bash
+systemctl restart docker.service containerd.service
 ```
 ## Configurando docker-compose
 ```bash
